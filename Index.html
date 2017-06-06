@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <title>Title</title>
+    <link rel="stylesheet" href="Index.css"/>
+    <script src="Index.js"></script>
+
+</head>
+<body>
+<div ng-app = "calculatorApp" ng-controller = "shopController">
+
+
+    <div class="container" style="text-align:center;font-size:30px;background-color:lightblue">
+        <div class="well well-sm">Items Calculator In MKS/CGS Metric Systems</div>
+
+    </div>
+    <table border = "0" class="table">
+
+        <tr class="info">
+            <th>Items</th>
+            <th>Units</th>
+            <th>Price in Kgs</th>
+            <th>Price in Lbs </th>
+        </tr>
+        <tr ng-repeat = "grocery in shop.groceries">
+            <td>{{ grocery.Item }}</td>
+            <!--Grocery Items Fetching from Index.js File-->
+            <td><input type="number" step="1" ng-init="1" min="0" value="{{something}}" ng-model="something" onchange="getValue()"></td>
+            <td>${{ something* grocery.kgs }}</td>
+            <!--fetching Data From Grocery Items in kgs-->
+            <td>${{something* grocery.lbs }}</td>
+            <!--fetching Data From Grocery Items in lbs-->
+        </tr>
+    </table>
+</div>
+<div class="container">
+    <div class="well well-sm">For Each 1 item,the price may be changes in Kgs/Lbs</div>
+</div>
+</body>
+</html>
